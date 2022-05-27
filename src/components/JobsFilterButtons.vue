@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { useJobStore } from '@/stores/jobStore'
 import type Job from '@/types/Job'
-import { ref, computed } from 'vue'
-import type { Ref } from 'vue'
 
 const store = useJobStore()
 
@@ -13,7 +11,7 @@ const changeOrder = (orderBy: keyof Job) => {
 function compareKeys(key: keyof Job, order: 'asc' | 'desc' = 'asc') {
   return function innerSort(a: Job, b: Job) {
     let comparison = 0
-    a[key] > b[key] ? comparison = 1 : comparison = -1
+    a[key] > b[key] ? (comparison = 1) : (comparison = -1)
     return order === 'desc' ? comparison * -1 : comparison
   }
 }
@@ -31,14 +29,22 @@ const addJob = () => {
 <template>
   <div class="filter-buttons">
     <h2>Order by:</h2>
+    <div>
     <button @click="changeOrder('salary')" class="btn">Salary</button>
     <button @click="changeOrder('location')" class="btn">Location</button>
     <button @click="changeOrder('title')" class="btn">Title</button>
     <button @click="addJob" class="btn">Add job</button>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 0.5em;
+}
 .filter-buttons h2 {
   margin-bottom: 0.3em;
 }

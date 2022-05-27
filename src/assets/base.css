@@ -1,7 +1,7 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-white: #ffffff;
-  --vt-c-white-soft: #ECE7DB;
+  --vt-c-white-soft: #ece7db;
   --vt-c-white-mute: #e3dddd;
 
   --vt-c-black: #181818;
@@ -72,4 +72,15 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: HyliaSerif;
+  src: url('HyliaSerifBeta-Regular.otf') format('opentype');
+}
+
+h1,
+h2 {
+  font-family: HyliaSerif;
+  letter-spacing: 4px;
 }
